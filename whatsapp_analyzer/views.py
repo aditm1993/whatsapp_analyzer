@@ -1,8 +1,6 @@
 import os
-
 from django.shortcuts import render, redirect
 from .utils import analyse_data
-from pprint import pprint
 import json
 import csv
 from django.conf import settings
