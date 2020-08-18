@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import pandas as pd
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -13,7 +14,7 @@ SECRET_KEY = 'c%z*)jp8hee515b5inf$t2iog$x&^zhf4%w-7_7a&l_18b_3=7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -99,6 +100,19 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'whatsapp_analyzer/static'),
+]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# import tables
+TABLE1 = pd.read_csv(os.path.join(BASE_DIR, 'media', 'input_tables', 'table1.csv'))
+TABLE2 = pd.read_csv(os.path.join(BASE_DIR, 'media', 'input_tables', 'table2.csv'))
+
+# set table columns
+TABLE1.columns = ['id', 'text', 'group_id', 'created_at_utc']
+TABLE2.columns = ['group_id', 'member_count', 'group_name',
+                  'engagement', 'activity_score', 'installed_date', 'category']

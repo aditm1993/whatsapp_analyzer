@@ -1,0 +1,105 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    {#    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.min.css' %}">#}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Whatsapp Analyzer</title>
+</head>
+<body>
+<div class="card container">
+    <h4>Analyze Keywords</h4>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label for="keywords" class="col-lg-2 col-sm-3 col-form-label"><p>Keywords</p></label>
+            <div class="col-lg-10 col-sm-9">
+                <input type="text" class="form-control"
+                       id="keywords" name="keywords"
+                       {% if keywords %}value="{{ keywords }}" {% endif %}
+                       placeholder='Enter keywords separated by ",". Example: keyword1,keyword2,keyword3'>
+            </div>
+        </div>
+        <div class="p-t-15">
+            <button class="btn btn--radius-2 btn-middle" type="submit">Analyze</button>
+        </div>
+    </form>
+</div>
+
+{% if table_data %}
+    <div class="card my-container" id="data">
+        <h4>Analyzed Data</h4>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Select</th>
+                <th scope="col">Group ID</th>
+                <th scope="col">Group Name</th>
+                <th scope="col">Match Count</th>
+                <th scope="col">Member Count</th>
+                <th scope="col">Activity Score</th>
+                <th scope="col">Engagement (%)</th>
+                <th scope="col">Installed Date</th>
+                <th scope="col">Category</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for table_row in table_data %}
+                <tr onclick="checkbox('input-{{ forloop.counter }}')">
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>
+                        <input type="checkbox" name="checked_rows"
+                               id="input-{{ forloop.counter }}"
+                               class="checkbox"
+                               value="{{ forloop.counter0 }}">
+                    </td>
+                    <td>{{ table_row.group_id }}</td>
+                    <td>{{ table_row.group_name }}</td>
+                    <td>{{ table_row.count }}</td>
+                    <td>{{ table_row.member_count }}</td>
+                    <td>{{ table_row.activity_score }}</td>
+                    <td>{{ table_row.engagement }}</td>
+                    <td>{{ table_row.installed_date }}</td>
+                    <td>{{ table_row.category }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-4 col-xs-9">
+                <button onclick="checkAll()" class="button">Select All</button>
+            </div>
+            <div class="col-md-4 col-xs-9">
+                <button onclick="uncheckAll()" class="button">Deselect All</button>
+            </div>
+            <div class="col-md-4 col-xs-9">
+                <button onclick="downloadCsv()" class="button">Download Selected</button>
+            </div>
+            <span style="display: none"><a href="" id="download-link"></a></span>
+        </div>
+    </div>
+{% endif %}
+
+{% if table_data %}
+    <div class="card container">
+        <h4>Past Results</h4>
+        <ul>
+            {% for past_result in past_results %}
+                <li>
+                    <a href="{{ past_result.link }}">{{ past_result.file_name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+<script src="{% static 'moment.min.js' %}"></script>
+<script src="{% static 'main.js' %}"></script>
+</body>
+</html>
