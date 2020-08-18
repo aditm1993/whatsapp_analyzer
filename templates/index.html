@@ -86,19 +86,6 @@
     </div>
 {% endif %}
 
-{% if table_data %}
-    <div class="card container">
-        <h4>Past Results</h4>
-        <ul>
-            {% for past_result in past_results %}
-                <li>
-                    <a href="{{ past_result.link }}">{{ past_result.file_name }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-{% endif %}
-
 <script src="{% static 'moment.min.js' %}"></script>
 <script src="{% static 'main.js' %}"></script>
 </body>

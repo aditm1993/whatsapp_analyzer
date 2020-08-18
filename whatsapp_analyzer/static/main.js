@@ -33,7 +33,7 @@ const downloadCsv = () => {
     const fileName = `analysed data - ${currentDateTime}.csv`;
     downloadLink.setAttribute('download', fileName);
     downloadLink.click();
-    sendData(csvContent, fileName).then(r => console.log(r));
+    sendData(rows, fileName).then(r => console.log(r));
 }
 
 const sendData = async (csvData, fileName) => {

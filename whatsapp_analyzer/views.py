@@ -14,7 +14,6 @@ def index(request):
         keywords_text = request.POST['keywords']
         keywords = keywords_text.split(',')
         table_data = analyse_data(keywords)
-        pprint(table_data)
         context['table_data'] = table_data
         context['keywords'] = keywords_text
     return render(request, 'index.html', context)
