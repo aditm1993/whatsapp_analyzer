@@ -58,3 +58,14 @@ label p {
 .button:active {
     outline: none;
 }
+
+#data {
+    font-size: .5em;
+}
+
+.my-container {
+    border-radius: 0.75rem;
+    padding: 35px;
+    width: max-content;
+    margin: 50px auto;
+}
