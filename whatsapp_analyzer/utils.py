@@ -1,11 +1,13 @@
 import time
-
+import os
 import pandas as pd
 from django.conf import settings
 import psycopg2
 
 
 def analyse_data(keywords):
+    os.makedirs(os.path.join(settings.MEDIA_ROOT, 'output_tables'), exist_ok=True)
+
     if len(keywords) == 0:
         return []
     elif len(keywords) == 1:
