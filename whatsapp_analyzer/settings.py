@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'c%z*)jp8hee515b5inf$t2iog$x&^zhf4%w-7_7a&l_18b_3=7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -108,11 +108,9 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-# import tables
-TABLE1 = pd.read_csv(os.path.join(BASE_DIR, 'media', 'input_tables', 'table1.csv'))
+# import table2
 TABLE2 = pd.read_csv(os.path.join(BASE_DIR, 'media', 'input_tables', 'table2.csv'))
 
 # set table columns
-TABLE1.columns = ['id', 'text', 'group_id', 'created_at_utc']
 TABLE2.columns = ['group_id', 'member_count', 'group_name',
                   'engagement', 'activity_score', 'installed_date', 'category']
