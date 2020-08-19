@@ -10,7 +10,8 @@ __pycache__/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-media
+media/input_tables/*.csv
+media/output_tables/*.csv
 static
 venv-linux
 
