@@ -18,11 +18,11 @@ def analyse_data(keywords):
     select groupid, count(*)
     from "bd_cs_prod_conversations"
     where ({query_str})
-      and (createdatutc > current_timestamp -5)
+      and (createdatutc > current_timestamp - 45)
       and (type in ('Comment', 'Post'))
     group by groupid
     """
-    print(COMMAND)
+    print('querying database...')
 
     start_time = time.time()
     try:
@@ -36,7 +36,6 @@ def analyse_data(keywords):
                 cursor.execute(COMMAND)
                 table1 = pd.DataFrame(cursor.fetchall(), columns=('group_id', 'count'))
         print(f'received response in {time.time() - start_time} secs')
-        print(table1)
 
         # fill NaN values with 0
         table1.fillna(0, inplace=True)
