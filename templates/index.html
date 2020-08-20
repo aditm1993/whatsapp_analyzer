@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <base href="/">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    {#    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.min.css' %}">#}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>Keyword Count</title>
 </head>
@@ -22,8 +21,12 @@
             <div class="col-lg-10 col-sm-9">
                 <input type="text" class="form-control"
                        id="keywords" name="keywords"
-                       {% if keywords %}value="{{ keywords }}" {% endif %}
-                       placeholder='Enter keywords separated by ",". Example: keyword1,keyword2,keyword3'>
+                        {% if keywords %}
+                       placeholder="{{ keywords }}"
+                        {% else %}
+                       placeholder='Enter keywords separated by ",". Example: keyword1,keyword2,keyword3'
+                        {% endif %}
+                >
             </div>
         </div>
         <div class="p-t-15">
