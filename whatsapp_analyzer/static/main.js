@@ -29,7 +29,7 @@ const downloadCsv = () => {
     const encodedUri = encodeURI(csvContent);
     const downloadLink = document.querySelector('#download-link');
     downloadLink.setAttribute('href', encodedUri);
-    const currentDateTime = moment().format('YYYY-mm-DD, HH-mm');
+    const currentDateTime = moment().format('YYYY-MM-DD, HH-mm');
     const fileName = `analysed data - ${currentDateTime}.csv`;
     downloadLink.setAttribute('download', fileName);
     downloadLink.click();
