@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="3.128.32.218" id="a598393a-926e-4049-9904-638495b46def" keyPath="C:\Users\Rajorshi\Downloads\adit_online.pem" port="22" customName="whatsapp analyzer vps" nameFormat="CUSTOM" username="ubuntu">
+        <option name="customName" value="whatsapp analyzer vps" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

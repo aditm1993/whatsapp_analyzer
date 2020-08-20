@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="504292e2-0a29-4780-a0d9-f38f6691b681" name="whatsapp-analyzer">
+        <fileTransfer accessType="SFTP" host="3.128.32.218" port="22" sshConfigId="a598393a-926e-4049-9904-638495b46def" sshConfig="whatsapp analyzer vps" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
