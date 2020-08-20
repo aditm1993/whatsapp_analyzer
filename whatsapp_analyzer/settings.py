@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import pandas as pd
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -114,3 +115,5 @@ TABLE2 = pd.read_csv(os.path.join(BASE_DIR, 'media', 'input_tables', 'table2.csv
 # set table columns
 TABLE2.columns = ['group_id', 'member_count', 'group_name',
                   'engagement', 'activity_score', 'installed_date', 'category']
+
+django_heroku.settings(locals())
