@@ -109,9 +109,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # import table2
-TABLE2 = pd.read_csv(os.path.join(BASE_DIR, 'media', 'input_tables', 'table2.csv'))
+TABLE2 = pd.read_csv(os.path.join(BASE_DIR, 'tables', 'input_tables', 'table2.csv'))
 
 # set table columns
 TABLE2.columns = ['group_id', 'member_count', 'group_name',
                   'engagement', 'activity_score', 'installed_date', 'category']
-

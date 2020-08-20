@@ -21,7 +21,7 @@ def send_file(request):
     if request.method == 'POST':
         post_data = json.loads(request.body)
         with open(os.path.join(
-                settings.MEDIA_ROOT, 'output_tables', post_data['fileName']
+                settings.BASE_DIR, 'tables', 'output_tables', post_data['fileName']
         ), 'w', encoding='utf-8', newline='') as f:
             writer = csv.writer(f)
             for row in post_data['data']:

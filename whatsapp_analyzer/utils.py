@@ -6,7 +6,7 @@ import psycopg2
 
 
 def analyse_data(keywords):
-    os.makedirs(os.path.join(settings.MEDIA_ROOT, 'output_tables'), exist_ok=True)
+    os.makedirs(os.path.join(settings.BASE_DIR, 'tables', 'output_tables'), exist_ok=True)
 
     if len(keywords) == 0:
         return []
