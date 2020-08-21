@@ -232,3 +232,6 @@ server {
 # sudo systemctl restart nginx
 # sudo systemctl restart gunicorn
 ```
+
+## Output csv location
+The generated csv files will be stored under `whatsapp_analyzer/tables/output_tables`
